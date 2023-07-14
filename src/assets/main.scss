@@ -1,0 +1,118 @@
+@import './base.css';
+@import './icons';
+
+@mixin on-circle($item-count, $circle-size, $item-size) {
+  position: relative;
+  width: $circle-size;
+  height: $circle-size;
+  * {
+    color: var(--i-color) !important;
+  }
+  padding: 0;
+  border-radius: 50%;
+  list-style: none;
+
+  > * {
+    display: block;
+    position: absolute;
+    top: 42.5%;
+    left: 42.5%;
+    width: $item-size*2.3;
+    height: $item-size*2.3;
+    font-size: $item-size;
+    padding: 15px;
+    margin: -(calc($item-size / 2));
+    background: var(--color-background-soft);
+    $angle: (calc(360 / $item-count));
+    $rot: 0;
+
+    > * {
+      position: relative;
+      top: -5px;
+      left: 1px
+    }
+
+    @for $i from 1 through $item-count {
+      &:nth-of-type(#{$i}) {
+        transform: rotate(calc($rot * 1deg)) translate(calc($circle-size / 2)) rotate(calc($rot * -1deg));
+
+        &:hover {
+          & > *:not(i) {
+            transform: scale(1.2) translate(-4px, -4px);
+          }
+
+          & > * {
+            transform: scale(1.2);
+          }
+        }
+      }
+      $rot: $rot + $angle;
+    }
+  }
+}
+
+.circle-container {
+  animation: rotation 2s;
+
+  &.con1 {
+    @include on-circle($item-count: 6, $circle-size: 250px, $item-size: 30px);
+  }
+
+  &.con2 {
+    @include on-circle($item-count: 4, $circle-size: 250px, $item-size: 30px);
+  }
+
+  &.con3 {
+    @include on-circle($item-count: 4, $circle-size: 250px, $item-size: 30px)
+  }
+
+  &.con4 {
+    @include on-circle($item-count: 6, $circle-size: 250px, $item-size: 30px)
+  }
+
+  margin: 5em auto 0;
+  border: solid 2px var(--color-background-mute);
+
+  > * {
+    display: block;
+    border-radius: 50%;
+    border: solid 3px var(--color-border);
+    transition: .15s;
+
+    &:hover {
+      color: var(--i-color) !important
+    }
+  }
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg)
+  }
+  100% {
+    transform: rotate(360deg)
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background: var(--color-background-soft);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+}
+
+.brand {
+  width: 40%;
+  height: 120px;
+  position: fixed;
+  top: -40vh;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.top {
+  margin-top: 600vh;
+}

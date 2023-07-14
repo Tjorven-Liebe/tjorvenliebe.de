@@ -1,0 +1,68 @@
+@mixin icon() {
+  background-size: 40px;
+  transform: translate(-5px, -5px);
+  background-repeat: no-repeat;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  top: 2px !important;
+}
+
+.spigot-icon {
+  background: url("./icons/img.png");
+  @include icon();
+}
+
+.java-icon {
+  background: url("./icons/img_1.png");
+  @include icon();
+}
+
+.paper-icon {
+  background: url("./icons/paper.svg");
+  @include icon()
+}
+
+.kotlin-icon {
+  background: url("./icons/kotlin.svg");
+  @include icon()
+}
+
+.node-icon {
+  position: relative;
+  top: 8px;
+  background: url("./icons/node.svg");
+  @include icon()
+}
+
+.bukkit-icon {
+  background: url("./icons/img_2.png");
+  @include icon()
+}
+
+.discord-icon {
+  position: relative;
+  left: -1px !important;
+}
+
+.gradle-icon {
+  background: url("./icons/img_3.png");
+  @include icon()
+}
+
+.rest-icon {
+  position: relative;
+  top: 5px;
+  background: url("./icons/img_4.png");
+  @include icon()
+}
+
+.html-icon {
+  position: relative;
+  left: 3px;
+}
+
+.jetbrains-icon {
+  background: url("./icons/jetbrains.svg");
+  @include icon()
+}
