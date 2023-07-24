@@ -19,12 +19,16 @@ window.onload = () => {
   const container4 = document.getElementById("con4")
 
   const skills = document.getElementById("skills")
+  const about = document.getElementById("about")
+  const contact = document.getElementById("contact")
+  const footer = document.getElementById("footer")
 
   if (scrollY >= 1400) {
     brand.style.top = 50 + ((-scrollY + 1325) / 8) + 'vh'
   } else {
     brand.style.top = 40 + 'vh'
   }
+
   window.onscroll = () => {
     const s = 50 + (-scrollY / 8)
     const s1 = 50 + ((-scrollY + 340) / 8)
@@ -65,35 +69,67 @@ window.onload = () => {
 
     console.log(scrollY)
 
-    if (scrollY > 1920) {
-      skills.style.opacity = '1'
-    } else {
+    if (scrollY < 2100) {
       skills.style.opacity = '0'
+      container1.style.display = 'none'
+      container2.style.display = 'none'
+      container3.style.display = 'none'
+      container4.style.display = 'none'
     }
 
-    if (scrollY < 2100) {
+    if (scrollY > 2100 && scrollY <= 2200) {
+      skills.style.opacity = '1'
       container1.style.display = 'block'
       container2.style.display = 'none'
       container3.style.display = 'none'
       container4.style.display = 'none'
     }
-    if (scrollY > 2500 && scrollY <= 2600) {
+    if (scrollY > 2500 && scrollY <= 3000) {
       container1.style.display = 'none'
       container2.style.display = 'block'
       container3.style.display = 'none'
       container4.style.display = 'none'
-      console.log(2)
     }
-    if (scrollY > 3000 && scrollY <= 3100) {
+    if (scrollY > 3000 && scrollY <= 3500) {
+      container1.style.display = 'none'
       container2.style.display = 'none'
       container3.style.display = 'block'
       container4.style.display = 'none'
-      console.log(3)
     }
-    if (scrollY > 3500 && scrollY <= 3600) {
+    if (scrollY > 3500 && scrollY <= 4000) {
+      container1.style.display = 'none'
+      container2.style.display = 'none'
       container3.style.display = 'none'
       container4.style.display = 'block'
-      console.log(4)
+      skills.style.opacity = '1'
+      skills.style.display = 'block'
+      about.style.opacity = '0'
+      about.style.display = 'none'
+      console.log('toggle')
+    }
+    if (scrollY > 4000 && scrollY <= 4500) {
+      skills.style.opacity = '0'
+      skills.style.display = 'none'
+      contact.style.opacity = '0'
+      contact.style.display = 'none'
+      about.style.opacity = '1'
+      about.style.display = 'block'
+    }
+    if (scrollY > 4500 && scrollY <= 5000) {
+      skills.style.opacity = '0'
+      skills.style.display = 'none'
+      about.style.opacity = '0'
+      about.style.display = 'none'
+      contact.style.opacity = '1'
+      contact.style.display = 'block'
+      footer.style.opacity = '0'
+      footer.style.display = 'none'
+    }
+    if (scrollY > 5000) {
+      contact.style.opacity = '0'
+      contact.style.display = 'none'
+      footer.style.opacity = '1'
+      footer.style.display = 'block'
     }
   }
 }
@@ -128,6 +164,7 @@ window.onload = () => {
   <section id="skills" style="position: fixed;">
     <hr>
     <h1 class="text-center">My Skills</h1>
+    <hr>
     <div class="stacktree">
       <div id="con1" class="showcase-content">
         <ul class='circle-container con1'>
@@ -154,12 +191,51 @@ window.onload = () => {
         </ul>
       </div>
     </div>
-    <hr style="margin-top: 89vh">
+    <hr style="position: absolute; bottom: 0; width: 100%; height: 3px">
+  </section>
+  <section id="about">
+    <hr>
+    <h1 class="text-center">About me</h1>
+    <hr>
+    <div>
+      <h3>Hi, I'm Tjorven!</h3>
+      <h5>What do I have to say about myself?</h5>
+      <p>Well..</p>
+      <ul>
+        <li>I'm a German developer <i class="fas fa-beer"></i></li>
+        <li>I'm a software developer <i class="fas fa-code"></i> since 2018</li>
+        <li>I started coding with minecraft plugin</li>
+        <li>and a web-developer <i class="fas fa-earth"></i> since 2020</li>
+        <li>My favourite languages are Java <i class="fab fa-java"></i> and CSS <i class="fab fa-css3"></i> </li>
+      </ul>
+    </div>
+    <hr style="position: absolute; bottom: 0; width: 100%; height: 3px">
+  </section>
+  <section id="contact">
+    <hr>
+    <h1 class="text-center">Contact me</h1>
+    <hr>
+    <div>
+      <h3>So you wanna contact me?</h3>
+      <h4>Here are my information</h4>
+    </div>
+    <hr style="position: absolute; bottom: 0; width: 100%; height: 3px">
+  </section>
+  <section id="footer">
+    <hr>
+    <h1 class="text-center">Legal Terms</h1>
+    <hr>
+    <div>
+      <h3>As a German citizen, I surely have to be bureaucratic!</h3>
+      <a href="impressum">Imprint</a><br/>
+      <a href="data-protection.html">Data Protection Regulation</a>
+    </div>
+    <hr style="position: absolute; bottom: 0; width: 100%; height: 3px">
   </section>
 </template>
 <style lang="scss" scoped>
 
-#skills {
+#skills, #about, #contact, #footer {
   position: fixed;
   left: 0;
   top: 0;
@@ -167,6 +243,34 @@ window.onload = () => {
   height: 100vh;
   transition: 1s;
   opacity: 0;
+  > div {
+
+    h1 {
+      text-align: center;
+      font-size: 40pt;
+    }
+    h2 {
+      text-align: center;
+      font-size: 35pt;
+    }
+    h3 {
+      text-align: center;
+      font-size: 30pt;
+    }
+    h4 {
+      text-align: center;
+      font-size: 25pt;
+    }
+    h5{
+      text-align: center;
+      font-size: 20pt;
+    }
+    * {
+      font-size: 18pt;
+    }
+    width: 30%;
+    margin: 2% auto
+  }
 }
 
 .showcase-content {

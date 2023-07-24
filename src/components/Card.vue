@@ -4,8 +4,6 @@ var i;
 if (props.icon.startsWith('fa')) {
   i = '<i class="' + props.icon + '"></i>'
 } else i = '<div class="' + props.icon + '"></div>'
-
-
 </script>
 
 <template>
@@ -13,5 +11,4 @@ if (props.icon.startsWith('fa')) {
 </template>
 
 <style lang="scss" scoped>
-
 </style>
